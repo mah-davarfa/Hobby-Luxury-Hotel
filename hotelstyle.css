@@ -30,8 +30,13 @@ body{
 }
 
 img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-ul{ padding:0; margin:0; list-style:none; }
+a{ color:inherit;
+   text-decoration:none;
+   }
+ul{ padding:0; 
+  margin:0; 
+  list-style:none;
+ }
 
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   outline: 2px solid var(--brand);
@@ -40,28 +45,60 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 }
 
 /* Page gutters */
-header, main, footer { max-width: 100vw; margin-inline:auto; padding-inline: 1rem; width: 100%; }
+header, main, footer { 
+  max-width: 100vw; 
+  margin-inline:auto; 
+  padding-inline: 1rem; 
+  width: 100%; 
+}
 
 /* ---------- Header ---------- */
 header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
   gap: 1rem;
   padding-block: .75rem;
-  flex-wrap: wrap;
+  
+  }
+  header nav a{
+  padding:.5rem .75rem; 
+  border-radius:var(--radius);
+  background: transparent;
 }
 header .site-branding h1{ 
   font-size: clamp(1.rem, 1.2rem + 1vw, 1.75rem);
-   margin:0; }
+  padding-right:20px;
+  margin:0; 
+  animation:  3s spin ease-in-out 1s infinite;
+  }
+  @keyframes spin {
+    0%{
+      scale:0;
+    }
+    50%{
+      scale:1.5;
+      }
+    100%{
+      scale:1;
+    }
+  }
 header nav ul{ 
   display:flex; 
   gap: clamp(.3rem, 1.2vw, 1.20rem);
+  flex-wrap: nowrap;
+  min-width: 0;
  }
+ header nav li{
+  min-width: 0;
+  flex: 0 1 auto;             
+}
 header nav a{
   padding:.5rem .75rem; 
   border-radius:var(--radius);
-   background:transparent;
+  white-space: nowrap;
+  font-size: clamp(.9rem, .85rem + .2vw, 1rem);
+  background:transparent;
 }
 header nav a:hover{ background: var(--ring); }
 
@@ -111,8 +148,6 @@ padding: 1.5rem 1rem;
   margin-inline: auto;
   list-style: none;
   padding: 0;
-  
-  
 }
 
 .about-highlights figure{
@@ -137,21 +172,7 @@ padding: 1.5rem 1rem;
   padding: .75rem .9rem;
   color: var(--muted);
 }
-@media (min-width: 678px){
- 
-  .about-highlights{
-  width: 100%;
-  max-width: 1200px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
- 
-.about-highlights figure > img{
-   height: clamp(140px, 18vw, 220px); /* pick your range */
-    aspect-ratio: auto;                 /* let height rule win */                  
-}
 
-
-}
 /* ---------- Rooms ---------- */
 #rooms{ display:grid; gap: 1rem; justify-items: center;}
 #rooms > p{ color: var(--muted); margin:0; }
@@ -159,7 +180,7 @@ padding: 1.5rem 1rem;
 
 /* ===================== ROOMS (overlapping pair) ===================== */
 
-/* Section wrapper stays simple; center contents and add a little gap */
+
 .rooms-feature{
   display: grid;
   gap: .75rem;
@@ -167,11 +188,10 @@ padding: 1.5rem 1rem;
   place-content: center;
 }
 
-/* Overlap stage: a single-cell grid that stacks children on top of each other */
+
 .overlasp-rooms{
   display: grid;
   place-items: center;                      /* centers both figures */
-  /* Controls the overall footprint; tweak to taste */
   min-height: clamp(330px, 35vw, 550px);
   
 }
@@ -179,7 +199,7 @@ padding: 1.5rem 1rem;
 /* The two cards share the same grid cell (row 1 / col 1) -> stacked layer */
 .overlasp-rooms .feature-a,
 .overlasp-rooms .feature-b{
-  grid-area: 1 / 1;                         /* <— stack both in same cell */
+  grid-area: 1 / 1;                         /*  stack both in same cell */
   margin: 0;                                /* figures have default margin */
   width: clamp(170px, 35vw, 290px);         /* responsive width */
   aspect-ratio: 1/1;                      /* fixed shape for each card */
@@ -204,14 +224,14 @@ padding: 1.5rem 1rem;
   z-index: 2;
 }
 .overlasp-rooms .feature-b{
-  transform: translate(40%, 22%);           /* shift down/right a bit */
+  transform: translate(40%, 22%);           
   z-index: 3;                               /* on top */ 
 }
 
 /* Micro-interaction */
 .overlasp-rooms .feature-a:hover
 {
-  transform: translate(-25%, -25%);               /* glide toward center on hover */
+  transform: translate(-25%, -25%);               /* glide out off the center on hover */
   box-shadow: var(--hover-shadow);
   z-index: 4;  
 }
@@ -224,31 +244,13 @@ padding: 1.5rem 1rem;
   margin: .25rem auto 0;
   max-width: min(58ch, 90%);
   color: var(--muted);
-  background:var(--bg-2) ;/*mixining 2 color color-mix(in oklab, var(--panel) 86%, black 14%)*/
+  background:var(--bg-2) ;/*or mixining 2 color color-mix(in oklab, var(--panel) 92%, black 75%)*/
   border: 1px solid var(--ring);
   padding: .7rem .9rem;
   border-radius: var(--radius);
   box-shadow: var(--hover-shadow);
 }
-@media (min-width:678px){
-  .overlasp-rooms{
-    min-height: clamp(470px, 44vw, 580px);
-    
-  }
-  .overlasp-rooms .feature-a,
-.overlasp-rooms .feature-b{
- width: clamp(180px, 38vw, 330px);    
-     
-} 
-.overlasp-rooms .feature-b:hover{
-    transform: translate(20%, 15%);  
-  }
-  .overlasp-rooms .feature-a:hover
-{
-  transform: translate(-25%, -20%);               /* glide toward center on hover */
-   
-}
-}
+
 
 
 /* Room cards: mobile scroll-snap; desktop grid */
@@ -258,15 +260,7 @@ padding: 1.5rem 1rem;
   display: grid;
   gap: 1rem;
 }
-
-
-
-
-/* Or slide in when ONLY the first “peek” card is hovered (modern browsers) */
-/* .room-f-c:has(.peek:hover) .room-cards{
-  transform: translateX(0);
-} */
- /*---------- Mobile: use a horizontal carousel instead of hover ---------- */
+/*---------- Mobile: use a horizontal carousel instead of hover ---------- */
  .room-cards{
     display:grid;
     gap:1rem;                    
@@ -304,9 +298,9 @@ padding: 1.5rem 1rem;
 .room-cards figure > img{
   width: 100%;
   height: 70%;
-  object-fit: cover;              /* fills neatly without distortion */
-  display: block;                 /* kills inline-image baseline gap */
-  aspect-ratio: 4 / 3;            /* consistent media window */
+  object-fit: cover;             
+  display: block;                 
+  aspect-ratio: 4 / 3;            
 }
 
 .room-cards figcaption{
@@ -314,7 +308,7 @@ padding: 1.5rem 1rem;
   color: var(--muted);
 }
 
-/* Style the "See Available Rooms →" card so it looks like a CTA tile */
+
 .room-cards .peek article{
   display: grid;
   place-items: center;
@@ -324,32 +318,6 @@ padding: 1.5rem 1rem;
   font-weight: 600;
   color: var(--text);
 }
-/* ---------- Track (desktop = grid, starts “peeking” from the right) ---------- */
-
-@media (min-width:678px){
-.room-cards{
-    display:flex;
-     gap: 1rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-   overflow: visible;
-    transform: translateX(50%);
-    transition: transform 500ms ease;
-    scroll-snap-type: none;
-    min-width: 0;
-     flex: 1 1 0 ;
-}
-.room-cards li{
-    min-width: 0;
-     flex: 1 1 0 ;
-}
-.room-cards:hover{
-    transform:translateX(0%) ;
-    
-}
-}
-
 
 .room-cards figcaption{ padding:.65rem .8rem; color: var(--muted); }
 
@@ -384,7 +352,7 @@ section[aria-labelledby="restaurant-heading"] h2{
   overflow:hidden;
   box-shadow: var(--shadow);
 }
-/* .restaurant > * { min-width: 0; } */
+
 .restaurant-hero img{
 width:100%;
 height: clamp(20rem, 38vw, 30rem); 
@@ -405,7 +373,7 @@ display: block;
 }
 .food-thumbs a{
   display:grid;
-  grid-template-rows: minmax(0, 1fr) auto;   /* media area + caption */
+  grid-template-rows: minmax(0, 1fr) auto;   
   gap: 0.5rem; 
   align-content:start; 
   justify-items:center;
@@ -469,13 +437,11 @@ display: block;
     overflow:hidden; 
     height: clamp(18rem, 28vw, 22rem);
     width: 100%;
-    
     padding:.5rem; 
     border-radius: var(--radius);
 }
 .panel-figure img{ 
     width:100%; 
-   
     object-fit:cover;
     display:block;
     height: clamp(16rem, 28vw, 20rem);
@@ -511,68 +477,6 @@ display: block;
     opacity:1; 
     pointer-events:auto;
  }
-
-
-/* ===== Desktop layout for Restaurant ===== */
-@media (min-width: 678px){
-.restaurant{
-    max-width: 1200px;
-    margin-inline: auto;
-    gap: 1.25rem;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr) minmax(0, 0.8fr);
-    grid-template-areas: "hero thumbs panels";
-    align-items: stretch;     
-  }
-.restaurant-hero{
-    display: grid;            
-  }
-  .restaurant-hero img{
-    height: 100%;             
-    object-fit: cover;
-  }
-
-  
-  .food-thumbs{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: .9rem;
-    align-self: start;
-   
-  }
-  .food-thumbs a{
-    grid-template-rows: minmax(0, 1fr) auto;
-  }
-  .food-thumbs img{
-    height: clamp(9rem, 14vw, 12rem);
-    object-fit: cover;
-  }
-
- 
-  .food-panels{
-    height: 100%;           
-    min-height: clamp(22rem, 42vh, 32rem); 
-  }
-
-  
-  .panel-figure{
-    height: 100%;
-    padding: .75rem;
-    border-radius: var(--radius);
-    place-items: center;
-  }
-  .panel-figure img{
-    height: 90%;
-    object-fit: cover;
-  }
-
-.panel-body{
-    padding: 1rem;
-    place-items: center;
-  }
-}
-
-
-
-
 /* ---------- Nightlife (overlap) ---------- */
 #nightlife{ 
   display:grid;
@@ -588,7 +492,7 @@ display: block;
 } 
 .club-feature .club-a, .club-feature .club-b{
   grid-area: 1/1;
- width: clamp(110px, 38vw, 140px); 
+  width: clamp(110px, 38vw, 140px); 
   aspect-ratio: 1/1;
   border-radius: var(--radius); 
   overflow:hidden; 
@@ -600,7 +504,7 @@ display: block;
   z-index:2; 
 }
 .club-feature .club-b{ 
-  transform: translate(25%, 13%);
+  transform: translate(25%, 11%);
    z-index:3;
    }
 .club-feature img{ 
@@ -609,15 +513,16 @@ display: block;
   object-fit:cover; 
 }
 .club-tag{
+  font-size: clamp(1rem, .85rem + .2vw, 1.8rem);
   background: var(--overlay); 
   backdrop-filter: blur(6px);
   padding:.6rem .8rem; 
-  border-radius:12px; margin:0;
+  margin:0;
   box-shadow: var(--hover-shadow);
-  .element {
-  border: 1px solid var(--ring);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* outer glow */
-}
+  border-radius: var(--radius);
+  text-align: center;
+  animation: glowPulse 2s ease-in-out infinite;
+  border:1px solid #fff
 
 }
 .club-feature .club-a:hover, .club-feature .club-b:hover{
@@ -629,73 +534,245 @@ display: block;
     text-shadow: 0 0 5px var(--brand), 0 0 10px var(--brand), 0 0 15px var(--brand);
   }
   50% {
-    text-shadow: 0 0 10px var(--brand), 0 0 20px var(--brand), 0 0 30px var(--brand);
+    text-shadow: 2px 3px 10px var(--brand), 2px 3px 20px var(--brand), 2px 3px 30px var(--brand);
   }
   100% {
     text-shadow: 0 0 5px var(--brand), 0 0 10px var(--brand), 0 0 15px var(--brand);
   }
-}
-
-.club-tag {
-  
-  /* background: linear-gradient(90deg, var(--bg), #1a1530 60%, #2a1b4a); */
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius);
-  font-size: 1.2rem;
-  text-align: center;
-  animation: glowPulse 2.5s ease-in-out infinite;
-  border:var(--hover-shadow)
-}
-@media (min-width:678px){
-.club-feature{
-  
-  min-height: clamp(450px, 35vw, 680px);
-}
-.club-feature .club-a, .club-feature .club-b{
- grid-area: 1/1; /*put the 2 pictures on top of eachother*/
- 
-  width: clamp(180px, 38vw, 330px); 
-}
-.club-feature .club-b{ 
-  transform: translate(27%, 22%);
-   z-index:3;
-   }
+  0%{
+    box-shadow:  0 0 5px var(--brand), 0 0 10px var(--brand), 0 0 15px var(--brand); ;
+  }
+   50% {
+    box-shadow: 2px 3px 10px rgba(255, 255, 255, 0.2), 2px 3px 20px rgba(255, 255, 255, 0.2), 2px 3px 30px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--brand), 0 0 10px var(--brand), 0 0 15px var(--brand);
+  }
 }
 
 /* ---------- Booking bar (fixed bottom) ---------- */
 .booking-bar{
-  /* position: fixed; */
+  position: fixed;
   left:0; right:0; bottom:0;
   z-index: 50;
-  background: color-mix(in oklab, var(--panel) 92%, black 8%);
+  background: color-mix(in oklab, var(--panel) 92%, black 75%);
   backdrop-filter: blur(8px);
   border-top: 1px solid var(--ring);
-  padding: .6rem 1rem;
+  padding-block: clamp(.5rem, 1.2vw, .9rem);
+  font-size: clamp(.7rem, .85rem + .2vw, .9rem);
 }
 .booking-bar form{
-  max-width: 1120px; margin-inline:auto;
-  display:flex; flex-wrap: wrap; gap:.6rem;
-  align-items:center; justify-content:center;
+  margin-inline:auto;
+  display: grid;   
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));   
+  gap: clamp(.5rem, 1.2vw, .8rem);
+  align-items:center; 
+  justify-content:center;
+  max-width: 1120px;
 }
 .booking-bar label{
-  display:flex; align-items:center; gap:.4rem;
-  background: var(--bg-2); padding:.4rem .6rem; border-radius:10px;
+  display:flex; 
+  align-items:center;
+  gap:.4rem;
+  background: var(--bg-2);
+  padding:.4rem .6rem;
+  border-radius:10px;
+  
 }
 .booking-bar input, .booking-bar select{
-  background: transparent; color: var(--text); border: 1px solid transparent;
-  padding:.35rem .5rem; border-radius: 8px;
+  background: transparent;
+  color: var(--text); 
+  border: 1px solid transparent;
+  padding:.35rem .5rem; 
+  border-radius: 8px;
 }
 .booking-bar button{
-  padding:.5rem .9rem; border-radius: 10px; border:0; cursor:pointer;
-  background: var(--brand); color:white; box-shadow: var(--shadow);
+  padding:.5rem .9rem; 
+  border-radius: 10px; 
+  max-width:200px;
+  border:0; 
+  cursor:pointer;
+  background: var(--brand); 
+  color:white; 
+  box-shadow: var(--shadow);
+  transition:300ms;
+  animation: glowPulse 2s ease-in-out infinite;
 }
-.booking-bar button:hover{ filter: brightness(1.05); }
+.booking-bar button:hover{ 
+  filter: brightness(1.55); 
+}
 
 /* keep page content visible above fixed bar */
-footer{ padding-bottom: 78px; }
-@supports(padding: max(0px)){
-  footer{ padding-bottom: max(78px, env(safe-area-inset-bottom)); }
+/* footer{ padding-bottom: 18rem; } */
+@supports(padding: max(10rem)){
+  footer{ padding-bottom: max(
+      clamp(14rem, 24vw, 24rem),                    /* fluid reserve */
+      env(safe-area-inset-bottom));
+  font-size: clamp(.8rem, .85rem + .2vw, 1rem);
+  }
 }
 
 /* ---------- Footer ---------- */
-footer{ text-align:center; color: var(--muted); }
+footer{ 
+  
+  text-align:center; 
+  color: var(--muted); 
+}
+
+@media (min-width: 678px){
+  /* ---------- Header ---------- */
+  header{
+    grid-template-columns: 1fr auto 1fr;
+  }
+  .site-branding{
+    grid-column: 2;
+    justify-self: center;
+  }
+  header nav{
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  /* ---------- About highlights ---------- */
+  .about-highlights{
+    width: 100%;
+    max-width: 1200px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .about-highlights figure > img{
+    height: clamp(140px, 18vw, 220px);
+    aspect-ratio: auto;
+  }
+
+  /* ---------- Rooms (overlapping pair) ---------- */
+  .overlasp-rooms{
+    min-height: clamp(470px, 44vw, 580px);
+  }
+  .overlasp-rooms .feature-a,
+  .overlasp-rooms .feature-b{
+    width: clamp(180px, 38vw, 330px);
+  }
+  .overlasp-rooms .feature-b:hover{
+    transform: translate(20%, 15%);
+  }
+  .overlasp-rooms .feature-a:hover{
+    transform: translate(-25%, -20%);
+  }
+
+  /* ---------- Room cards (desktop track) ---------- */
+  .room-cards{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    transform: translateX(50%);
+    transition: transform 500ms ease;
+    scroll-snap-type: none;
+    min-width: 0;
+    flex: 1 1 0;
+  }
+  .room-cards li{
+    min-width: 0;
+    flex: 1 1 0;
+  }
+  .room-cards:hover{
+    transform: translateX(0%);
+  }
+
+  /* ---------- Restaurant (desktop layout) ---------- */
+  .restaurant{
+    max-width: 1200px;
+    margin-inline: auto;
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr) minmax(0, 0.8fr);
+    grid-template-areas: "hero thumbs panels";
+    align-items: stretch;
+  }
+  .restaurant-hero{ display: grid; }
+  .restaurant-hero img{
+    height: 100%;
+    object-fit: cover;
+  }
+  .food-thumbs{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .9rem;
+    align-self: start;
+  }
+  .food-thumbs a{
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .food-thumbs img{
+    height: clamp(9rem, 14vw, 12rem);
+    object-fit: cover;
+  }
+  .food-panels{
+    height: 100%;
+    min-height: clamp(22rem, 42vh, 32rem);
+  }
+  .panel-figure{
+    height: 100%;
+    padding: .75rem;
+    border-radius: var(--radius);
+    place-items: center;
+  }
+  .panel-figure img{
+    height: 90%;
+    object-fit: cover;
+  }
+  .panel-body{
+    padding: 1rem;
+    place-items: center;
+  }
+
+  /* ---------- Nightlife (larger layout) ---------- */
+  .club-feature{
+    min-height: clamp(450px, 35vw, 680px);
+  }
+  .club-feature .club-a,
+  .club-feature .club-b{
+    grid-area: 1/1;
+    width: clamp(180px, 38vw, 330px);
+  }
+  .club-feature .club-b{
+    transform: translate(27%, 22%);
+    z-index: 3;
+  }
+
+  /* ---------- Footer spacing (when booking bar is fixed) ---------- */
+  footer{ padding-bottom: 10rem; }
+  @supports(padding: max(0px)){
+    footer{ padding-bottom: max(10rem, env(safe-area-inset-bottom)); }
+  }
+}
+
+@media (min-width: 678px) and (max-width: 894px){
+.about-highlights{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  max-width:100%;
+}
+.about-highlights > *:nth-child(3){
+  grid-column: 1 / -1; 
+  justify-self: center;  
+  max-width: 620px;  
+}
+.restaurant{
+  display: grid;
+  grid-template-columns: minmax(0 , 1.2fr) minmax(0 , 1fr);
+  grid-template-areas:
+    "hero thumbs"
+    "panels panels";
+  gap:1rem;
+}
+.panel{
+  max-width: 550px;
+  margin:0 auto;
+}
+.panel-figure img{
+    height: 95%;
+    object-fit: cover;
+    
+  }
+}

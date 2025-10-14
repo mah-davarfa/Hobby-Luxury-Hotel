@@ -26,7 +26,6 @@ body{
   display:grid;               /* vertical page flow */
   place-items: center;
   gap: clamp(16px, 2vw, 28px);
-  
 }
 
 img{ max-width:100%; display:block; }
@@ -86,7 +85,7 @@ header .site-branding h1{
 header nav ul{ 
   display:flex; 
   gap: clamp(.3rem, 1.2vw, 1.20rem);
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   min-width: 0;
  }
  header nav li{
@@ -774,5 +773,14 @@ footer{
     height: 95%;
     object-fit: cover;
     
+  }
+}
+/* already have .booking-bar--sticky on the element */
+@media (max-width: 367px){
+  .booking-bar{
+    bottom: 0;
+  }
+  body{
+    padding-bottom: 125px;   /* remove big reserve when sticky */
   }
 }

@@ -3,23 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fort Blue — a luxury hotel concept featuring a modern booking bar, rooms gallery, restaurant and nightlife. Book your stay and explore fine dining and club experiences."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quintessential&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./hotelstyle.css"> 
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- defining our own utility in @theme -> use it inline or globally apply by @layer base{}-->
+ <style type="text/tailwindcss">
+  
+   @theme { 
+    --font-sans-app :  Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; 
+    --font-serif-app:   "Playfair Display", Georgia, "Times New Roman", serif; 
+    --font-quin:"Quintessential", Georgia, serif;
+    --text-h1-bold: 2rem;
+    --color-brand: #0077cc; 
+    }
+
+  @layer base {
+    body { @apply font-sans-app; }
+    h1,h2,h3 { @apply font-serif-app; }
+   p { @apply font-quin;}
+   }
+  
+</style>
+    <meta name="description" content="Fort Blue — a luxury hotel concept featuring a modern booking bar, rooms gallery, restaurant and nightlife. Book your stay and explore fine dining and club experiences."/>
   <title>Fort Blue Hotel</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <link rel="stylesheet" href="./hotelstyle.css">
+ 
 </head>
 <body id="top">
 
   <header>
     <div class="site-branding">
-      <h1><a href="#top">Fort Blue</a></h1>
+      <h1 class="text-h1-bold"><a href=#top >Fort Blue</a></h1>
     </div>
     <nav aria-label="Primary">
       <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#rooms">Rooms</a></li>
-        <li><a href="#restaurant">Restaurant</a></li>
-        <li><a href="#nightlife">Night Club @ Hotel</a></li>
+        <li class="hover:text-brand transition-colors duration-300"  ><a href="#about">About Us</a></li>
+        <li class="hover:text-brand transition-colors duration-300"><a href="#rooms">Rooms</a></li>
+        <li class="hover:text-brand transition-colors duration-300"><a href="#restaurant">Restaurant</a></li>
+        <li class="hover:text-brand transition-colors duration-300"><a href="#nightlife">Night Club @ Hotel</a></li>
       </ul>
     </nav>
   </header> 
@@ -232,7 +255,7 @@
       <label>Guests <input type="number" name="guests" min="1" value="2" required></label>
       <label>Name<input type="'text" placeholder="Name" required maxlength="20"></label>
       <label for="menu">Choose an option:</label>
-      <select id="menu">
+      <select  id="menu">
         <option value="home">Junior Suite Ocean View</option>
         <option value="about">Deluxe Bay View with Balcony </option>
         <option value="contact">Sorrento Oceanfront </option>

@@ -70,6 +70,7 @@ header .site-branding h1{
   padding-right:20px;
   margin:0; 
   animation:  3s spin ease-in-out 1s infinite;
+  
   }
   @keyframes spin {
     0%{
@@ -404,7 +405,7 @@ display: block;
   position: relative;
   overflow: hidden;   
   isolation: isolate; 
-  min-height: clamp(18rem, 60vh, 23rem);
+  min-height: clamp(18rem, 60vh, 22rem);
   border-radius: var(--radius);
 }
 
@@ -443,7 +444,7 @@ display: block;
     width:100%; 
     object-fit:cover;
     display:block;
-    height: clamp(16rem, 28vw, 20rem);
+    height: clamp(16rem, 28vw, 19rem);
     border-radius: var(--radius);
  }
 .panel-body{ 
@@ -491,7 +492,7 @@ display: block;
 } 
 .club-feature .club-a, .club-feature .club-b{
   grid-area: 1/1;
-  width: clamp(110px, 38vw, 140px); 
+  width: clamp(130px, 38vw, 190px); 
   aspect-ratio: 1/1;
   border-radius: var(--radius); 
   overflow:hidden; 
@@ -559,6 +560,9 @@ display: block;
   border-top: 1px solid var(--ring);
   padding-block: clamp(.5rem, 1.2vw, .9rem);
   font-size: clamp(.7rem, .85rem + .2vw, .9rem);
+}
+#menu{
+  background-color: #141421;
 }
 .booking-bar form{
   margin-inline:auto;

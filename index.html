@@ -6,7 +6,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quintessential&display=swap" rel="stylesheet">
-  
+  <!-- Font Awesome for icons (skills + contact) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./hotelstyle.css"> 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <!-- defining our own utility in @theme -> use it inline or globally apply by @layer base{}-->
@@ -245,6 +248,24 @@
       <p class="club-tag">Quintessential Nightlife — Unveil the Night</p>
       
     </section>
+        <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-center" style="text-align:center;margin-bottom:1rem;">Contact</h2>
+      <p style="text-align:center;color:var(--muted);margin-bottom:.5rem;">
+        Let’s connect:
+      </p>
+      <p style="text-align:center;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:mah.daravfa@gmail.com" class="hover:text-brand transition-colors">
+          <i class="fa-solid fa-envelope"></i> Email
+        </a>
+          <a href="https://www.linkedin.com/in/mahmoud-davarfara-09b57933a/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+        <a href="https://github.com/mah-davarfa" target="_blank" rel="noopener noreferrer">
+           <i class="fa-brands fa-github"></i> @mah-davarfa
+       </a>
+
+      </p>
+    </section>
   </main>
 
   <!-- Sticky quick-booking UI lives outside the footer -->
@@ -253,7 +274,7 @@
       <label>Check-in <input type="date" name="checkin" required></label>
       <label>Check-out <input type="date" name="checkout" required></label>
       <label>Guests <input type="number" name="guests" min="1" value="2" required></label>
-      <label>Name<input type="'text" placeholder="Name" required maxlength="20"></label>
+      <label>Name<input type="text" placeholder="Name" required maxlength="20"></label>
       <label for="menu">Choose an option:</label>
       <select  id="menu">
         <option value="home">Junior Suite Ocean View</option>

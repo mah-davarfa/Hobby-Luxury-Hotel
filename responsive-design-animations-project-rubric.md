@@ -23,35 +23,35 @@ This project focuses on creating a fun and interactive platform to highlight per
 - [ x] External CSS stylesheet properly linked
 - [x ] Meta viewport tag and title optimization
 - [x ] Minimum 3 sections or pages with consistent navigation
-- [ ] CSS Framework integration (Bootstrap OR Tailwind CSS)
+- [ x] CSS Framework integration (Bootstrap OR Tailwind CSS)
 - [ x] Framework grid system implementation (containers, rows, columns)
 - [x ] Framework component usage (buttons, cards, navigation, forms)
-- [ ] Google Fonts integration with font-display optimization
-- [ ] Font pairing strategy (maximum 2-3 fonts)
+- [ x] Google Fonts integration with font-display optimization
+- [x ] Font pairing strategy (maximum 2-3 fonts)
 - [ ] Font Awesome icon integration throughout interface
 - [ x] Advanced CSS selectors (pseudo-classes, pseudo-elements, combinators)
-- [ ] CSS animations using @keyframes (minimum 2 animations)
+- [x ] CSS animations using @keyframes (minimum 2 animations)
 - [ x] CSS transitions on hover and interactive elements
 - [ x] Transform functions (translate, scale, rotate)
 - [ x] Mobile-first responsive design approach
-- [ ] Multiple responsive breakpoints (mobile, tablet, desktop)
-- [ ] Responsive navigation that adapts to screen size
-- [ ] Professional color scheme and typography hierarchy
-- [ ] HTML and CSS validation passing
-- [ ] No overlapping or hidden elements on any device size
+- [x ] Multiple responsive breakpoints (mobile, tablet, desktop)
+- [ x] Responsive navigation that adapts to screen size
+- [x ] Professional color scheme and typography hierarchy
+- [x ] HTML and CSS validation passing
+- [ x] No overlapping or hidden elements on any device size
 
 ### **Could Have (Bonus Points):**
 
-- [ ] CSS custom properties (variables) for theming
-- [ ] Advanced animation techniques (chaining, staggered effects)
-- [ ] Complex CSS Grid layouts with named areas
+- [ x] CSS custom properties (variables) for theming
+- [ x] Advanced animation techniques (chaining, staggered effects)
+- [x ] Complex CSS Grid layouts with named areas
 - [ ] Advanced flexbox patterns and combinations
 - [ ] CSS-only interactive components (dropdowns, modals, accordions)
-- [ ] Scroll-triggered animations or effects
-- [ ] Framework customization (custom Bootstrap theme or Tailwind config)
+- [x ] Scroll-triggered animations or effects
+- [x ] Framework customization (custom Bootstrap theme or Tailwind config)
 - [ ] Performance optimizations (lazy loading, image optimization)
 - [ ] Advanced pseudo-selectors (:nth-child patterns, :has(), :where())
-- [ ] Images with descriptive alt text and responsive scaling
+- [ x] Images with descriptive alt text and responsive scaling
 
 ---
 
@@ -68,7 +68,7 @@ This project focuses on creating a fun and interactive platform to highlight per
 ### **Option B - Hobby Showcase Must Include:**
 
 - [ ] Homepage with compelling hero section and hobby introduction
-- [ ] Gallery/portfolio section or page showcasing hobby-related content
+- [] Gallery/portfolio section or page showcasing hobby-related content
 - [ ] Tutorial/tips section or page sharing knowledge and expertise
 - [ ] About section or page with personal story and passion explanation
 - [ ] Contact/community section or page for connecting with other enthusiasts

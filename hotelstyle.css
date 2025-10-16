@@ -66,7 +66,7 @@ header{
   background: transparent;
 }
 header .site-branding h1{ 
-  font-size: clamp(1.rem, 1.2rem + 1vw, 1.75rem);
+  font-size: clamp(1rem, 1.2rem + 1vw, 1.75rem);
   padding-right:20px;
   margin:0; 
   animation:  3s spin ease-in-out 1s infinite;
@@ -500,11 +500,11 @@ display: block;
   transition: transform var(--speed) ease, box-shadow var(--speed);
 }
 .club-feature .club-a{ 
-  transform: translate(-40%, -13%); 
+  transform: translate(-40%, -10%); 
   z-index:2; 
 }
 .club-feature .club-b{ 
-  transform: translate(25%, 11%);
+  transform: translate(35%, 8%);
    z-index:3;
    }
 .club-feature img{ 
@@ -525,9 +525,15 @@ display: block;
   border:1px solid #fff
 
 }
-.club-feature .club-a:hover, .club-feature .club-b:hover{
-  transform: translateY(-4px);
+.club-feature .club-a:hover {
+  transform: translate(-20%, -5%);  
   box-shadow: var(--hover-shadow);
+  z-index:4;
+}
+.club-feature .club-b:hover{
+  transform: translate(15%, 3%);
+  box-shadow: var(--hover-shadow);
+  
 }
 @keyframes glowPulse {
   0% {
@@ -622,7 +628,7 @@ footer{
   color: var(--muted); 
 }
 
-@media (min-width: 678px){
+@media (min-width: 895px){
   /* ---------- Header ---------- */
   header{
     grid-template-columns: 1fr auto 1fr;
@@ -785,6 +791,6 @@ footer{
     bottom: 0;
   }
   body{
-    padding-bottom: 125px;   /* remove big reserve when sticky */
+    padding-bottom: 145px;   /* remove big reserve when sticky */
   }
 }

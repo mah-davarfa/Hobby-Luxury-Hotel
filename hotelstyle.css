@@ -757,6 +757,26 @@ footer{
 }
 
 @media (min-width: 678px) and (max-width: 894px){
+  .overlasp-rooms .feature-a{
+   transform: translate(-35%, -6%);        /*  shift up/left */
+  z-index: 2;
+}
+.overlasp-rooms .feature-b{
+  transform: translate(30%, 12%);           
+  z-index: 3;                               /* on top */ 
+}
+
+/* Micro-interaction */
+.overlasp-rooms .feature-a:hover
+{
+  transform: translate(0%, 0%);               /* glide out off the center on hover */
+  box-shadow: var(--hover-shadow);
+  z-index: 4;  
+}
+.overlasp-rooms .feature-b:hover{
+    transform: translate(0%, 0%);           /* glide toward center on hover */
+    box-shadow: var(--hover-shadow);
+}
 .about-highlights{
   display: grid;
   grid-template-columns: repeat(2, minmax(0,1fr));

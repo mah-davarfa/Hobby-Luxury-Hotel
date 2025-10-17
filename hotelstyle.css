@@ -401,34 +401,41 @@ display: block;
      }
 
 /* Panels: slide over thumbs using :target */
-.food-panels{
-  position: relative;
-  overflow: hidden;   
-  isolation: isolate; 
-  min-height: clamp(18rem, 60vh, 22rem);
-  border-radius: var(--radius);
+.food-panels {
+  position: relative;                         /* Establishes a positioning context for absolutely positioned children */
+  overflow: hidden;                           /* Hides any content that overflows the container */
+  isolation: isolate;                         /* Creates a new stacking context to contain z-index and blend effects */
+  min-height: clamp(18rem, 60vh, 22rem);      /* Responsive height: min 18rem, preferred 60% viewport height, max 22rem */
+  border-radius: var(--radius);               /* Applies rounded corners using a custom CSS variable */
 }
 
 /* Panel shell */
-.panel{
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: var(--panel);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  display:grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  transform: translateX(100%);   /* off-canvas to the right */
-  opacity: 0;
-  pointer-events: none;
-  transition: transform var(--speed) ease, opacity var(--speed) ease;
+.panel {
+  position: absolute;                         /* Positions the panel relative to .food-panels */
+  inset: 0;                                   /* Stretches the panel to fill its parent (top, right, bottom, left = 0) */
+  z-index: 1;                                 /* Places the panel above other content */
+  background: var(--panel);                   /* Sets background color using a CSS variable */
+  border-radius: var(--radius);               /* Matches the parent’s rounded corners */
+  box-shadow: var(--shadow);                  /* Adds shadow for depth using a CSS variable */
+  display: grid;                              /* Uses grid layout for internal content */
+  grid-template-rows: minmax(0, 1fr) auto;    /* Two rows: flexible content + auto-sized footer/caption */
+  transform: translateX(100%);                /* Initially positions the panel off-screen to the right */
+  opacity: 0;                                 /* Makes the panel invisible */
+  pointer-events: none;                       /* Disables interaction while hidden */
+  transition: transform var(--speed) ease,    /* Smooth slide-in animation */
+              opacity var(--speed) ease;      /* Smooth fade-in animation */
 }
 .panel-target{ 
     display:block; 
     width:0; 
     height:0; 
     scroll-margin-top:4rem; 
+}
+/* When targeted via #dish-X in the URL, slide in */
+.panel-target:target + .panel {
+  transform: translateX(0);   /* Slide the panel into view from the right (was off-screen at 100%) */
+  opacity: 1;                 /* Make the panel fully visible */
+  pointer-events: auto;       /* Re-enable interaction (clicks, hovers, etc.) with the panel */
 }
 
 .panel-figure{ 
@@ -471,12 +478,7 @@ display: block;
   backdrop-filter: blur(4px);
 }
 
-/* When targeted via #dish-X in the URL, slide in */
-.panel-target:target + .panel{ 
-    transform:translateX(0); 
-    opacity:1; 
-    pointer-events:auto;
- }
+
 /* ---------- Nightlife (overlap) ---------- */
 #nightlife{ 
   display:grid;
